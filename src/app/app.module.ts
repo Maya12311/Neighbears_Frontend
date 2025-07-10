@@ -7,12 +7,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NeighbearsService } from '../services/neighbears.service';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
     AppRoutingModule,  // Routing-Modul hier importieren
     HttpClientModule
   ],
-  providers: [NeighbearsService, HttpClient],
+  providers: [NeighbearsService, HttpClient, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
