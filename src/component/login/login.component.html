@@ -1,0 +1,14 @@
+
+
+  <form (ngSubmit)="validateUser(loginform)" #loginform="ngForm">
+    <div class="form-group">
+
+    <label for="email">email</label>
+ <input class="form-control"  type="email" name="email" id="email" [(ngModel)]="model.email">
+ <label  for="password">Password</label>
+ <input id="password" name="password" type="password" [(ngModel)]="model.password" class="form-control" >
+    <button class="btn btn-primary" type="submit">Sign in</button>
+  </div>
+
+  </form>
+
