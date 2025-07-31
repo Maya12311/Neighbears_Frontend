@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {User} from "../model/user"
-import { environmet } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { AppConstants } from '../constants/app.constants';
 
 @Injectable({
@@ -15,6 +15,6 @@ export class LoginService {
 
    validateLoginDetails(user: User ){
     window.sessionStorage.setItem("userdetails", JSON.stringify(user));
-    return this.http.get(environmet.apiBaseUrl + AppConstants.LOGIN_API_URL, {observe: 'response', withCredentials: true});
+    return this.http.get(environment.apiBaseUrl + AppConstants.LOGIN_API_URL, {observe: 'response', withCredentials: true});
    }
 }
