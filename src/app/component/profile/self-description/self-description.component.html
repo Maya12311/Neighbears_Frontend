@@ -1,0 +1,13 @@
+<p>self-description works!</p>
+
+<form (ngSubmit)="saveSelfDescripton(loginform)" #loginform="ngForm">
+  <div class="form-group">
+
+  <label for="titel">Titel</label>
+<input class="form-control"  type="titel" name="titel" id="titel" [(ngModel)]="selfDescription.title">
+<label  for="message">Description</label>
+<input id="message" name="message" type="descripton" [(ngModel)]="selfDescription.message" class="form-control" >
+  <button class="btn btn-primary" type="submit">Add description</button>
+</div>
+
+</form>
