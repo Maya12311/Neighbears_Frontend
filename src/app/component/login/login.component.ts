@@ -4,7 +4,7 @@ import { User } from '../../model/user';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { compileNgModule } from '@angular/compiler';
-
+import { getCookie } from 'typescript-cookie' // Pfad anpassen
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,17 +23,13 @@ export class LoginComponent implements OnInit{
   }
 
   validateUser(loginForm: NgForm){
-    console.log("hey")
-
     this.loginService.validateLoginDetails(this.model).subscribe(
       responseData => {
-console.log("this is the response ", responseData)
         this.model = <any> responseData.body;
         this.model.authStatus = 'AUTH';
-
-        console.log("in component")
         window.sessionStorage.setItem("userdetails", JSON.stringify(this.model));
-
+        let xsrf = getCookie("XSRF-TOKEN")!;
+        window.sessionStorage.setItem("XSRF-TOKEN", xsrf);
 
        this.router.navigate(['profile']);
       }
