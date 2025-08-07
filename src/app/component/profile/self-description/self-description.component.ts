@@ -20,7 +20,11 @@ export class SelfDescriptionComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    let xsrf = sessionStorage.getItem("XSRF-TOKEN");
     console.log(getCookie("XSRF-TOKEN"), "lets see what to see");
+
+
+    console.log(xsrf, " now with session storage lets see what to see");
 
    // this.router.navigate(['/login']);
   }
