@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { tap } from "rxjs/internal/operators/tap";
 import { User } from "../model/user";
 import { Injectable } from "@angular/core";
+import { getCookie } from "typescript-cookie";
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -17,6 +18,14 @@ export class XhrInterceptor implements HttpInterceptor {
     }
     if(this.user && this.user.password && this.user.email){
       httpHeaders = httpHeaders.append('Authorization', 'Basic ' + window.btoa(this.user.email + ':' + this.user.password));
+    }
+
+
+let xsrf = getCookie("XSRF-TOKEN")!;
+    //let xsrf = sessionStorage.getItem("XSRF-TOKEN");
+    console.log(xsrf, "im in interceptor")
+    if(xsrf){
+      httpHeaders = httpHeaders.append('X-XSRF-TOKEN', xsrf);
     }
 
     httpHeaders = httpHeaders.append('X-Requested-With', 'XMLHttpRequest');
