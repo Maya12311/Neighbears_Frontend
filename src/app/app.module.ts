@@ -1,3 +1,4 @@
+import { TestComponent } from './component/test/test.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -12,14 +13,20 @@ import { AuthService } from './component/auth/auth.service';
 import { HttpClientXsrfModule } from '@angular/common/http';
 import { XhrInterceptor } from './interceptors/interceptor';
 import { AuthActivateRouteGuard } from './routeguards/routeguard';
-
+import { LogoutComponent } from './component/logout/logout.component';
+import { SelfDescriptionComponent } from './component/profile/self-description/self-description.component';
+import { ImageComponent } from './component/image/image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProfileComponent,
-    AuthComponent
+    AuthComponent,
+    LogoutComponent,
+    SelfDescriptionComponent,
+    TestComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,

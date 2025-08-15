@@ -1,0 +1,44 @@
+/* parent.component.css */
+.profile {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  align-items: flex-start;       /* Text darf nach oben ausrichten */
+}
+
+/* ca. 35% Bild / 65% Text */
+.image {
+  /* Wichtig: prozentuale Basis für das Verhältnis */
+  flex: 0 0 20%;
+  max-width: 20%;
+  margin-left: 1%;
+}
+
+.description {
+  flex: 1 1 65%;
+  max-width: 65%;
+  /* Flexbox-Falle: erlaubt dem Inhalt, kleiner zu werden und umzubrechen */
+  min-width: 0;
+}
+
+/* Responsive: unter 768px stapeln wir untereinander */
+@media (max-width: 768px) {
+  .profile {
+
+    flex-direction: column;
+  }
+
+  .image,
+  .description {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .setMargin{
+    margin-left: 1%;
+  }
+
+  .profilePage{
+    margin-left: 5%;
+  }
+
+}
