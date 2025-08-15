@@ -1,0 +1,31 @@
+
+.friendly-btn {
+  background: linear-gradient(green, darkgreen, darkblue)  ;/* freundliches Grün */
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-top: 5%;
+}
+
+.friendly-btn:hover {
+  background-color: #4cae4c;     /* dunkleres Grün */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.friendly-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.friendly-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92,184,92,0.4);
+}
+
