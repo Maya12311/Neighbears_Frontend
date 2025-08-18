@@ -1,0 +1,17 @@
+.box
+{
+  border-radius: 2%;
+  border-color: black;
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Schatten */
+  display: flex;
+
+}
+
+:host {
+  display: block;
+  background: #333;
+  color: white;
+}
+
+
