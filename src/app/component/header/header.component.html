@@ -1,12 +1,11 @@
-<p>header works!</p>
 <div class="box">
   <div >
     <nav >
    <div *ngFor="let head of currentHeaders">
 
-    <div    routerLink="{{head}}">{{head}}</div>
+    <a    [routerLink]="head">{{head}}</a>
   </div>
-  <div *ngIf="isLoggedIn==null && pageTitle!= 'Login'" routerLink="/login">Login</div>
+  <a *ngIf="isLoggedIn==null && pageTitle!= 'Login'" routerLink="/login">Login</a>
 
 
     </nav>
