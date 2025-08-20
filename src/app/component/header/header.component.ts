@@ -10,7 +10,7 @@ import { getCookie } from 'typescript-cookie';
 })
 export class HeaderComponent implements OnInit{
 
-  allHeaders = ['Home', 'Add To Board', 'See All Neighbears', 'Message', 'Profile', 'Logout' , 'Test'];
+  allHeaders = ['Home', 'Add To Community Board', 'See All Neighbears', 'Message', 'Profile', 'Logout' , 'Test'];
   currentHeaders: any = [];
   pageTitle: string = '';
   currentUrl: string = '';
