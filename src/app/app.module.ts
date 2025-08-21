@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './component/login/login.component';  // richtiger Pfad!
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NeighbearsService } from './services/neighbears.service';
 import { ProfileComponent } from './component/profile/profile.component';
 import { AuthComponent } from './component/auth/auth.component';
@@ -16,6 +16,8 @@ import { AuthActivateRouteGuard } from './routeguards/routeguard';
 import { LogoutComponent } from './component/logout/logout.component';
 import { SelfDescriptionComponent } from './component/profile/self-description/self-description.component';
 import { ImageComponent } from './component/image/image.component';
+import { HeaderComponent } from './component/header/header.component';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,15 @@ import { ImageComponent } from './component/image/image.component';
     LogoutComponent,
     SelfDescriptionComponent,
     TestComponent,
-    ImageComponent
+    ImageComponent,
+    HeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,  // Routing-Modul hier importieren
+    ReactiveFormsModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',

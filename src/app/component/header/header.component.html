@@ -3,7 +3,7 @@
     <nav >
    <div *ngFor="let head of currentHeaders">
 
-    <a    [routerLink]="head">{{head}}</a>
+    <a    [routerLink]="head.toLowerCase()">{{head.toLowerCase() }}</a>
   </div>
   <a *ngIf="isLoggedIn==null && pageTitle!= 'Login'" routerLink="/login">Login</a>
 
