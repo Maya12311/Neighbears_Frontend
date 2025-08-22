@@ -1,19 +1,24 @@
 <p>register works!</p>
 <div class="container">
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div>
     <label>Username: </label>
-    <input>
+    <input formControlName="userName" type="text">
+    <div *ngIf="registerForm.controls['userName'].errors">
+
+    </div>
 </div>
   <div>
       <label>Email: </label>
       <input></div>
 
-      <div>
         <label for="">Password: </label>
-        <input type="text">
-      </div>
+        <input formControlName="password" type="text">
+        <div *ngIf="registerForm.controls['password'].errors">
+        </div>
 
+        <label></label>
+<button type="submit">submit</button>
 </form>
 </div>
 
