@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
 
 
@@ -8,13 +8,21 @@ import { RegisterService } from '../../services/register.service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
-  private fb = inject(FormBuilder)
-  private auth = inject(RegisterService)
+   registerForm! : FormGroup;
+   auth = inject(RegisterService)
 
-  form = this.fb.group({})
+constructor(private formBuilder: FormBuilder){}
 
+  ngOnInit(): void {
+
+
+    this.registerForm = this.formBuilder.group({
+    userName : ['', Validators.required],
+    password: ['', Validators.required]
+  })
+  }
   onSubmit(){}
 
 }
