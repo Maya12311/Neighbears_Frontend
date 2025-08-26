@@ -1,5 +1,7 @@
 
+<h1>Say hello to your Neighbears 🐻</h1>
 
+<div class="container">
   <form (ngSubmit)="validateUser(loginform)" #loginform="ngForm">
     <div class="form-group">
 
@@ -7,8 +9,10 @@
  <input class="form-control"  type="email" name="email" id="email" [(ngModel)]="model.email">
  <label  for="password">Password</label>
  <input id="password" name="password" type="password" [(ngModel)]="model.password" class="form-control" >
-    <button class="btn btn-primary" type="submit">Sign in</button>
+ <div>
+    <button class="friendly-btn"  type="submit">Sign in</button>
+  </div>
   </div>
 
   </form>
-
+</div>

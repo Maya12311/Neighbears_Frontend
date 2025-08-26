@@ -1,0 +1,18 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px; /* abgerundete Ecken */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15); /* Schatten */
+  width: 500px;
+  justify-items: center;
+}
+
+  h1
+{
+  text-align: center;
+  color: #256d7b;
+  margin-top: 3rem;
+
+}
