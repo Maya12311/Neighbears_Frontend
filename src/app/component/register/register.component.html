@@ -1,4 +1,5 @@
-<p>register works!</p>
+<h1>Create a new account</h1>
+
 <div class="container">
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div>
@@ -18,12 +19,12 @@
         </div>
 
         <div>
-          <label for="">Telefon number</label>
+          <label for="">Telefon number:</label>
           <input type="number">
         </div>
         <p>Address:</p>
         <div>
-          <label for="">Street</label>
+          <label for="">Street:</label>
           <input type="text">
         </div>
         <div>
@@ -37,12 +38,12 @@
         </div>
 
         <div>
-          <label for="city">City</label>
+          <label for="city">City:</label>
           <input type="text">
         </div>
 
         <label></label>
-<button type="submit">submit</button>
+<button class="friendly-btn"  type="submit">submit</button>
 </form>
 </div>
 
