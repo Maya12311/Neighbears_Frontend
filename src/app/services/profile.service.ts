@@ -30,13 +30,19 @@ saveSelfDescription(selfDescripton: SelfDescripton){
 }
 
 loadDescription(){
- 
+
 return this.http.get<SelfDescripton>(environment.apiBaseUrl+ AppConstants.PROFILE_API_URL ,{observe: 'response', withCredentials: true})
 }
 
 changeDescription(selfDescription:  SelfDescripton){
 
   return this.http.put<SelfDescripton>(environment.apiBaseUrl + AppConstants.PROFILE_API_URL, selfDescription, {observe: 'response', withCredentials: true})
+}
+
+uploadPic(customerId: number, file: File){
+  const formData = new FormData();
+  formData.append("file", file);
+  return this.http.post(environment.apiBaseUrl + AppConstants.UPLOAD_PROFILE_PIC_URL , {observe: 'response', withCredentials: true})
 }
 
 }
