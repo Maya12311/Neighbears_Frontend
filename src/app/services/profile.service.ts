@@ -45,4 +45,8 @@ uploadPic( file: File){
   return this.http.post(environment.apiBaseUrl + AppConstants.UPLOAD_PROFILE_PIC_URL , formData, {observe: 'response', withCredentials: true})
 }
 
+getProfileImage(){
+  return this.http.get(environment.apiBaseUrl + AppConstants.CURRENT_USER_PROFILE_PIC, {responseType: 'blob', withCredentials: true})
+}
+
 }

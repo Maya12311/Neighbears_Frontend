@@ -1,6 +1,6 @@
 import { ProfileService } from './../../services/profile.service';
 import { AuthGuard } from './../../routeguards/routeguard';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { getCookie } from 'typescript-cookie';
 
 @Component({
@@ -8,11 +8,29 @@ import { getCookie } from 'typescript-cookie';
   templateUrl: './image.component.html',
   styleUrl: './image.component.css'
 })
-export class ImageComponent {
+export class ImageComponent implements OnInit {
 
   constructor(private profileService: ProfileService){}
 
 selectedFile: File | null = null;
+profileImageUrl: string | null = null;
+
+ngOnInit(): void {
+this.getProfilePic();
+console.log("wanna see the prkfjk dfk" , this.profileImageUrl)
+}
+
+getProfilePic(){
+this.profileService.getProfileImage().subscribe(blob => {
+  //console.log('blob url', blob);
+
+  this.profileImageUrl = URL.createObjectURL(blob);
+  console.log('blob url', this.profileImageUrl);
+})}
+
+
+
+
 
   onFileSelected(event: Event): void{
     const input = event.target as HTMLInputElement;
@@ -41,5 +59,8 @@ return ;
     }
     });
   }
+
+
+
 
 }
