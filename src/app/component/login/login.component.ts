@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit{
         this.model = <any> responseData.body;
         this.model.authStatus = 'AUTH';
         window.sessionStorage.setItem("userdetails", JSON.stringify(this.model));
-        let xsrf = getCookie("XSRF-TOKEN")!;
-        window.sessionStorage.setItem("XSRF-TOKEN", xsrf);
+       // let xsrf = getCookie("XSRF-TOKEN");
+       // window.sessionStorage.setItem("XSRF-TOKEN", xsrf);
 
        this.router.navigate(['profile']);
       }

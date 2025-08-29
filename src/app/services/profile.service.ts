@@ -39,10 +39,10 @@ changeDescription(selfDescription:  SelfDescripton){
   return this.http.put<SelfDescripton>(environment.apiBaseUrl + AppConstants.PROFILE_API_URL, selfDescription, {observe: 'response', withCredentials: true})
 }
 
-uploadPic(customerId: number, file: File){
+uploadPic( file: File){
   const formData = new FormData();
   formData.append("file", file);
-  return this.http.post(environment.apiBaseUrl + AppConstants.UPLOAD_PROFILE_PIC_URL , {observe: 'response', withCredentials: true})
+  return this.http.post(environment.apiBaseUrl + AppConstants.UPLOAD_PROFILE_PIC_URL , formData, {observe: 'response', withCredentials: true})
 }
 
 }

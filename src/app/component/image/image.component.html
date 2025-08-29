@@ -1,2 +1,3 @@
 <img src="assets/anonym.png">
-<button class="friendly-btn">Add profile picture</button>
+<input type="file" (change)="onFileSelected($event)">
+<button (click)="onUpload()" class="friendly-btn" [disabled]="!selectedFile">Add profile picture</button>
