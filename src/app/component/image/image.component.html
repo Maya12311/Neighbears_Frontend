@@ -1,3 +1,6 @@
+<div *ngIf="profileImageUrl == null">
 <img src="assets/anonym.png">
+</div>
+<img [src]="profileImageUrl" alt="">
 <input type="file" (change)="onFileSelected($event)">
 <button (click)="onUpload()" class="friendly-btn" [disabled]="!selectedFile">Add profile picture</button>
