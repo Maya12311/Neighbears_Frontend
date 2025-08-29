@@ -13,6 +13,7 @@ export class XhrInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let httpHeaders = new HttpHeaders();
+    
     if(sessionStorage.getItem('userdetails')){
       this.user = JSON.parse(sessionStorage.getItem('userdetails')!);
     }
@@ -21,12 +22,17 @@ export class XhrInterceptor implements HttpInterceptor {
     }
 
 
-let xsrf = getCookie("XSRF-TOKEN")!;
-    //let xsrf = sessionStorage.getItem("XSRF-TOKEN");
+let xsrf = getCookie("XSRF-TOKEN");
     console.log(xsrf, "im in interceptor")
     if(xsrf){
       httpHeaders = httpHeaders.append('X-XSRF-TOKEN', xsrf);
     }
+    //if(!xsrf){
+
+     //let xsrf = sessionStorage.getItem("XSRF-TOKEN");
+     //console.log(xsrf, "im in interceptor with session storage")
+
+//    }
 
     httpHeaders = httpHeaders.append('X-Requested-With', 'XMLHttpRequest');
     const xhr = req.clone({
