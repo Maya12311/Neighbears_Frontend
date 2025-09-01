@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
 
 
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
    registerForm! : FormGroup;
    auth = inject(RegisterService)
-
+  submitted: boolean= false;
 constructor(private formBuilder: FormBuilder){}
 
   ngOnInit(): void {
@@ -20,9 +20,23 @@ constructor(private formBuilder: FormBuilder){}
 
     this.registerForm = this.formBuilder.group({
     userName : ['', Validators.required],
-    password: ['', Validators.required]
+    email: ['', [Validators.required, Validators.email]],
+    telefonNumber: ['', Validators.required],
+    password: ['', Validators.required],
+    address: this.formBuilder.group({
+      street: ['', Validators.required],
+      houseNumber: [],
+      zipCode: [],
+      city: []
+    })
   })
   }
-  onSubmit(){}
+
+
+
+  onSubmit(){
+    console.log('submitted form : ', this.registerForm.value);
+    console.log(this.registerForm.valid)
+  }
 
 }
