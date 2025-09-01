@@ -11,7 +11,7 @@
 </div>
   <div>
       <label>Email: </label>
-      <input></div>
+      <input formControlName="email" type="text"></div>
 
         <label for="">Password: </label>
         <input formControlName="password" type="text">
@@ -20,30 +20,34 @@
 
         <div>
           <label for="">Telefon number:</label>
-          <input type="number">
+          <input formControlName="telefonNumber" type="number">
         </div>
-        <p>Address:</p>
+        <fieldset formGroupName="address">
+          <p>Address</p>
+
         <div>
-          <label for="">Street:</label>
-          <input type="text">
+          <label for="street">Street:</label>
+          <input formControlName="street" type="text">
         </div>
         <div>
-          <label for="house_Number">House Number: </label>
-          <input type="number">
+          <label for="houseNumber">House Number: </label>
+          <input formControlName="houseNumber" type="number">
         </div>
 
         <div>
           <label for="zip_Code">Zip Code:</label>
-          <input type="text">
+          <input formControlName="zipCode" type="number">
         </div>
 
         <div>
           <label for="city">City:</label>
-          <input type="text">
+          <input formControlName="city" type="text">
         </div>
+      </fieldset>
 
         <label></label>
 <button class="friendly-btn"  type="submit">submit</button>
 </form>
 </div>
+<br/>
 
