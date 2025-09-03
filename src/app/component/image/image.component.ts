@@ -14,6 +14,7 @@ export class ImageComponent implements OnInit {
 
 selectedFile: File | null = null;
 profileImageUrl: string | null = null;
+profilePicExist: boolean= false;
 
 ngOnInit(): void {
 this.getProfilePic();
@@ -26,6 +27,7 @@ this.profileService.getProfileImage().subscribe(blob => {
 
   this.profileImageUrl = URL.createObjectURL(blob);
   console.log('blob url', this.profileImageUrl);
+  this.profilePicExist=true;
 })}
 
 
@@ -36,6 +38,10 @@ this.profileService.getProfileImage().subscribe(blob => {
     const input = event.target as HTMLInputElement;
     if(input.files && input.files.length > 0 ){
       this.selectedFile = input.files[0];
+      if(this.selectedFile!= null){
+      this.profilePicExist=true;
+      }
+
     }
 
   }
@@ -53,6 +59,8 @@ return ;
   this.profileService.uploadPic(this.selectedFile).subscribe({
     next: (response) => {
       console.log("Upload successful!", response);
+      this.getProfilePic();
+
     },
     error: (err) => {
       console.log("error within the upload", err);
