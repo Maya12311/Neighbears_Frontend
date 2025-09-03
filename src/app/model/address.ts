@@ -2,16 +2,16 @@ export class Address
 {
   public id: number;
   public street: string;
-  public houseNumber: number|null;
-  public zipCode: number| null;
+  public houseNumber: string;
+  public zipCode: string;
   public city: string;
 
-constructor(id?: number, street?: string, houseNumber?: number, zipCode?: number, city?: string){
+constructor(id?: number, street?: string, houseNumber?: string, zipCode?: string, city?: string){
   this.id = id  ?? 0;
   this.street = street || "";
-  this.houseNumber = houseNumber ?? null;
+  this.houseNumber = houseNumber ?? "";
 
-  this.zipCode = zipCode ?? null;
+  this.zipCode = zipCode ?? "";
   this.city = city || "";
 }
 
