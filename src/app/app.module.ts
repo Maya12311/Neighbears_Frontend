@@ -19,6 +19,7 @@ import { ImageComponent } from './component/image/image.component';
 import { HeaderComponent } from './component/header/header.component';
 import { RegisterComponent } from './component/register/register.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { RegisterComponent } from './component/register/register.component';
   ],
   imports: [
     BrowserModule,
+
     FormsModule,
     AppRoutingModule,  // Routing-Modul hier importieren
     ReactiveFormsModule,
@@ -41,6 +43,7 @@ import { RegisterComponent } from './component/register/register.component';
     HttpClientXsrfModule.withOptions({
       cookieName: 'XSRF-TOKEN',
       headerName: 'X-XSRF-TOKEN',
+
     })
   ],
   providers: [NeighbearsService, HttpClient, AuthService, {

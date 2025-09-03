@@ -13,12 +13,12 @@ export class XhrInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let httpHeaders = new HttpHeaders();
-    
+
     if(sessionStorage.getItem('userdetails')){
       this.user = JSON.parse(sessionStorage.getItem('userdetails')!);
     }
-    if(this.user && this.user.password && this.user.email){
-      httpHeaders = httpHeaders.append('Authorization', 'Basic ' + window.btoa(this.user.email + ':' + this.user.password));
+    if(this.user && this.user.pwd && this.user.email){
+      httpHeaders = httpHeaders.append('Authorization', 'Basic ' + window.btoa(this.user.email + ':' + this.user.pwd));
     }
 
 
