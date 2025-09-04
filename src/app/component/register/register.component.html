@@ -1,49 +1,69 @@
 <h1>Create a new account</h1>
 
 <div class="container">
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" #fg="ngForm">
   <div>
     <label>Username: </label>
     <input formControlName="userName" type="text">
-    <div *ngIf="registerForm.controls['userName'].errors">
-
+    <div *ngIf="registerForm.controls['userName'].errors && fg.submitted" class="warn">
+      Username is required!
     </div>
 </div>
   <div>
       <label>Email: </label>
       <input formControlName="email" type="text"></div>
+      <div *ngIf="registerForm.controls['email'].errors && fg.submitted" class="warn">
+        Email is required!
+      </div>
 
         <label for="">Password: </label>
         <input formControlName="password" type="text">
-        <div *ngIf="registerForm.controls['password'].errors">
+        <div *ngIf="(registerForm.controls['password'].invalid && fg.submitted)" class="warn">
+          Password is required!
         </div>
 
         <div>
           <label for="">Telefon number:</label>
           <input formControlName="telefonNumber" type="number">
         </div>
-        <fieldset formGroupName="addressPart">
+
+        <fieldset formGroupName="addressPart" >
           <p>Address</p>
 
         <div>
           <label for="street">Street:</label>
           <input formControlName="street" type="text">
         </div>
+        <div *ngIf="registerForm.get('addressPart.street')?.errors && fg.submitted" class="warn">
+          Street is required!
+        </div>
+
         <div>
           <label for="houseNumber">House Number: </label>
           <input formControlName="houseNumber" type="number">
+        </div>
+        <div *ngIf="registerForm.get('addressPart.houseNumber')?.errors && fg.submitted" class="warn">
+          House number is required!
         </div>
 
         <div>
           <label for="zip_Code">Zip Code:</label>
           <input formControlName="zipCode" type="number">
         </div>
+        <div *ngIf="registerForm.get('addressPart.zipCode')?.errors && fg.submitted" class="warn">
+         Zip Code is required!
+        </div>
 
         <div>
           <label for="city">City:</label>
           <input formControlName="city" type="text">
         </div>
-      </fieldset>
+        <div
+        *ngIf="registerForm.get('addressPart.city')?.errors &&  fg.submitted" class="warn">
+
+        City is required!
+
+      </div> </fieldset>
 
         <label></label>
 <button class="friendly-btn"  type="submit">submit</button>
