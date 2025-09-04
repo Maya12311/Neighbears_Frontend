@@ -29,12 +29,12 @@ constructor(private formBuilder: FormBuilder, private registerService: RegisterS
     userName : ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     telefonNumber: ['', Validators.required],
-    password: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(8)]],
     addressPart: this.formBuilder.group({
       street: ['', Validators.required],
-      houseNumber: [],
-      zipCode: [],
-      city: []
+      houseNumber: ['', Validators.required],
+      zipCode: ['', Validators.required],
+      city: ['', Validators.required]
     })
   })
   }

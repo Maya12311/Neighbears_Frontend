@@ -25,7 +25,17 @@ p{
 }
 
 h1{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   margin-left: 1rem;
   color: #256d7b;
 text-align: center;
+}
+
+.warn
+{
+  background: #F8D7DA;
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
