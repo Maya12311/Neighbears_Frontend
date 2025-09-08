@@ -63,6 +63,7 @@ constructor(private formBuilder: FormBuilder, private registerService: RegisterS
     console.log("this is the blu address",registrationPayload.addressDTO)
 
     this.submitted = true;
+    console.log(this.registerForm.controls)
 
 
     this.registerService.registerUserWithAddress(registrationPayload).subscribe(
