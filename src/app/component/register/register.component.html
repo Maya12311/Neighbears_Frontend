@@ -4,7 +4,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" #fg="ngForm">
   <div>
     <label>Username: </label>
-    <input formControlName="userName" type="text">
+    <input formControlName="userName" type="text" >
     <div *ngIf="registerForm.controls['userName'].errors && fg.submitted" class="warn">
       Username is required!
     </div>
@@ -12,15 +12,24 @@
   <div>
       <label>Email: </label>
       <input formControlName="email" type="text"></div>
-      <div *ngIf="registerForm.controls['email'].errors && fg.submitted" class="warn">
+      <div *ngIf="registerForm.controls['email'].invalid && fg.submitted && registerForm.controls['email'].untouched" class="warn">
         Email is required!
       </div>
+      <div *ngIf="registerForm.controls['email'].errors?.['email'] && fg.submitted" class="warn">
+        Please use an email format
+      </div>
+
+     
 
         <label for="">Password: </label>
         <input formControlName="password" type="text">
-        <div *ngIf="(registerForm.controls['password'].invalid && fg.submitted)" class="warn">
+        <div *ngIf="(registerForm.controls['password'].errors?.['required'] && fg.submitted && !registerForm.errors?.['minlength'])" class="warn">
           Password is required!
         </div>
+        <div *ngIf="(registerForm.controls['password'].errors?.['minlength'] && fg.submitted)" class="warn">
+          Password minum length is 8
+        </div>
+
 
         <div>
           <label for="">Telefon number:</label>

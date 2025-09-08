@@ -24,8 +24,7 @@ export class SelfDescriptionComponent implements OnInit{
     let xsrf = sessionStorage.getItem("XSRF-TOKEN");
     this.loadDescription();
     this.selfDescription != null?this.profileIsFilledOut= true: this.profileIsFilledOut = false;
-    console.log("is this profile filled out? ", this.profileIsFilledOut);
-    console.log("wanna change description? ", this.wannaChangeDescription);
+
 
    // this.router.navigate(['/login']);
   }
@@ -33,8 +32,7 @@ export class SelfDescriptionComponent implements OnInit{
   goToFillOutForm(){
     this.wannaChangeDescription = true;
     this.profileIsFilledOut = false;
-    console.log("2is this profile filled out? ", this.profileIsFilledOut);
-    console.log("2wanna change description? ", this.wannaChangeDescription);
+    
   }
 
   changeDescription(loginForm: NgForm){
@@ -43,7 +41,7 @@ export class SelfDescriptionComponent implements OnInit{
       responseData => {
         this.selfDescription = <any> responseData.body;
         this.profileIsFilledOut=true;
-        this.wannaChangeDescription= false; 
+        this.wannaChangeDescription= false;
     },
     error => {
 
