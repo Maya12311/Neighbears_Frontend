@@ -35,8 +35,12 @@ img{
 border-radius: 10px;
 box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* optional: Schatten für Tiefe */
 
-  width: 30%;       /* Rest der Breite für Text */
+  width: 35%;       /* Rest der Breite für Text */
   display: flex;
   flex-direction: column;
   justify-content: center; /* optional vertikal mittig */
+}
+
+li{
+  list-style-type: none;
 }
