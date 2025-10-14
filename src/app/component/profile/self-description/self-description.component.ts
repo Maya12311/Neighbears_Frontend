@@ -21,7 +21,7 @@ export class SelfDescriptionComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let xsrf = sessionStorage.getItem("XSRF-TOKEN");
+   // let xsrf = sessionStorage.getItem("XSRF-TOKEN");
     this.loadDescription();
     this.selfDescription != null?this.profileIsFilledOut= true: this.profileIsFilledOut = false;
 
@@ -32,7 +32,7 @@ export class SelfDescriptionComponent implements OnInit{
   goToFillOutForm(){
     this.wannaChangeDescription = true;
     this.profileIsFilledOut = false;
-    
+
   }
 
   changeDescription(loginForm: NgForm){

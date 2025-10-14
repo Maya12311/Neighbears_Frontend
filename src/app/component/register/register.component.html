@@ -1,4 +1,6 @@
 <h1>Create a new account</h1>
+<div class="outerBox">
+  <img src="{{matureMan}}" alt="">
 
 <div class="container">
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" #fg="ngForm">
@@ -19,7 +21,7 @@
         Please use an email format
       </div>
 
-     
+
 
         <label for="">Password: </label>
         <input formControlName="password" type="text">
@@ -80,3 +82,4 @@
 </div>
 <br/>
 
+</div>

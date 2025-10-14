@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   submitted: boolean= false;
   user = new User();
   address = new Address();
+  matureMan= '../../../assets/matureManWhiteOnLaptop.png'
 constructor(private formBuilder: FormBuilder, private registerService: RegisterService, private router: Router){}
 
   ngOnInit(): void {

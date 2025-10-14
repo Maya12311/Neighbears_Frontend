@@ -16,10 +16,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     //this.getNeighbearProfile();
-   window.sessionStorage.getItem("userdetails");
-  window.sessionStorage.getItem("XSRF-TOKEN");
-    if(sessionStorage.getItem('userdetails')){
-      this.user = JSON.parse(sessionStorage.getItem('userdetails') || "");
+   //window.sessionStorage.getItem("userdetails");
+  //window.sessionStorage.getItem("XSRF-TOKEN");
+ //   if(sessionStorage.getItem('userdetails')){
+ //     this.user = JSON.parse(sessionStorage.getItem('userdetails') || "");
   }
 }
 
@@ -36,4 +36,3 @@ export class ProfileComponent implements OnInit {
     //)
   //}
 
-}

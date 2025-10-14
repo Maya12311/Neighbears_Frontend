@@ -19,4 +19,9 @@ export class LoginService {
    }
 
 
+   logout(){
+    return this.http.post(environment.apiBaseUrl + AppConstants.LOGOUT_API_URL, {withCredentials: true});
+   }
+
+
 }
