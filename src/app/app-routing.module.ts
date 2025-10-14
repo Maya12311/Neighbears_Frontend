@@ -6,12 +6,16 @@ import { AuthComponent } from './component/auth/auth.component';
 import { AuthActivateRouteGuard } from './routeguards/routeguard';
 import { TestComponent } from './component/test/test.component';
 import { RegisterComponent } from './component/register/register.component';
+import { HomeComponent } from './component/home/home.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 export const routes: Routes = [
 //  {path: '**' }
 
 
   {path: 'login', component: LoginComponent, data: {title: 'Login'}},
+  {path: 'home', component: HomeComponent, data: {title: 'Home'}},
+  {path: 'logout', component: LogoutComponent, data: {title: 'Logout'}},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthActivateRouteGuard], data: {title: 'Profile'}},
   {path: 'auth', component: AuthComponent, data: {title: 'auth'}},
   {path: 'test', component: TestComponent, canActivate: [AuthActivateRouteGuard], data: {title: 'Test'}},

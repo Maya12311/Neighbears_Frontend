@@ -18,6 +18,7 @@ import { SelfDescriptionComponent } from './component/profile/self-description/s
 import { ImageComponent } from './component/image/image.component';
 import { HeaderComponent } from './component/header/header.component';
 import { RegisterComponent } from './component/register/register.component';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { RegisterComponent } from './component/register/register.component';
     TestComponent,
     ImageComponent,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

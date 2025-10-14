@@ -8,6 +8,7 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15); /* Schatten */
   width: 500px;
   justify-items: center;
+  margin-right: 30%;
   }
 
 label
@@ -38,4 +39,18 @@ text-align: center;
   color: white;
   font-weight: bold;
   text-align: center;
+}
+
+img
+{
+  width: 350px;
+  height: 400px;
+}
+
+.outerBox
+{
+
+  display: flex;
+  flex-direction: row;
+
 }
