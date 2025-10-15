@@ -19,6 +19,7 @@ import { ImageComponent } from './component/image/image.component';
 import { HeaderComponent } from './component/header/header.component';
 import { RegisterComponent } from './component/register/register.component';
 import { HomeComponent } from './component/home/home.component';
+import { SeeAllNeighbearsComponent } from './component/see-all-neighbears/see-all-neighbears.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { HomeComponent } from './component/home/home.component';
     ImageComponent,
     HeaderComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    SeeAllNeighbearsComponent
   ],
   imports: [
     BrowserModule,

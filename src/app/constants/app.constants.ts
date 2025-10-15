@@ -5,5 +5,6 @@ export const AppConstants={
   UPLOAD_PROFILE_PIC_URL: "/uploadImage",
   CURRENT_USER_PROFILE_PIC: "/getprofilePic",
   REGISTRATION_USER_ADDRESS: "/register",
-  LOGOUT_API_URL: "/logout"
+  LOGOUT_API_URL: "/logout",
+  NEIGHBEAR_API_URL: "/allNeighbears"
 }
