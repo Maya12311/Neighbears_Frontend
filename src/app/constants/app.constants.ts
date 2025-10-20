@@ -4,6 +4,7 @@ export const AppConstants={
   TEST_API_URL: "/test",
   UPLOAD_PROFILE_PIC_URL: "/uploadImage",
   CURRENT_USER_PROFILE_PIC: "/getprofilePic",
+  CURRENT_USER_PROFILE_PIC_WITH_ID: "/getprofilePicWithId",
   REGISTRATION_USER_ADDRESS: "/register",
   LOGOUT_API_URL: "/logout",
   NEIGHBEAR_API_URL: "/allNeighbears"

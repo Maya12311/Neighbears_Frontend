@@ -49,4 +49,8 @@ getProfileImage(){
   return this.http.get(environment.apiBaseUrl + AppConstants.CURRENT_USER_PROFILE_PIC, {responseType: 'blob', withCredentials: true})
 }
 
+getProfileImageWithId(id:number){
+  return this.http.get(environment.apiBaseUrl + AppConstants.CURRENT_USER_PROFILE_PIC_WITH_ID, {responseType: 'blob', withCredentials: true})
+}
+
 }
