@@ -4,11 +4,12 @@ export class Neighbear
   public avatar?: {
     storageKey?: string | "";
     contentType?: string | "";
+    avatar?: any[] | [];
   }
 
   constructor(name?: string, id?: number) {
     this.name= name || "";
-    this.id = id || 0; 
+    this.id = id || 0;
   }
 
 }
