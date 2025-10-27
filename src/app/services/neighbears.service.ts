@@ -33,6 +33,12 @@ ngOnInit(): void {
 public getTest(id:number): Observable<string> {
   return this.http.get(`${this.apiServerUrl}`+AppConstants.TEST_API_URL, {responseType: 'text', withCredentials: true})
 }
+
+getUserAvatar(id: number): Observable<Blob> {
+  return this.http.get(`${this.apiServerUrl}/api/users/${id}/avatar`, {
+    responseType: 'blob',
+    withCredentials: true
+  });
   }
 
-
+}
