@@ -1,44 +1,154 @@
-/* parent.component.css */
-.profile {
-  display: flex;
-  gap: clamp(12px, 2vw, 24px);
-  align-items: flex-start;       /* Text darf nach oben ausrichten */
+:root{
+  --page-bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --text:    #0f172a;
+  --muted:   #475569;
+  --brick:   url('../../../assets/houseWall.png'); /* deine Wand-Grafik */
+  --brick-size: 220px;                      /* skalierbar: 180–280 */
+  --radius-xl: 24px;
+  --radius-lg: 18px;
 }
 
-/* ca. 35% Bild / 65% Text */
-.image {
-  /* Wichtig: prozentuale Basis für das Verhältnis */
-  flex: 0 0 20%;
-  max-width: 20%;
-  margin-left: 1%;
+.wall-image {
+  background-image: url('../../../assets/houseWall.png');
+
 }
 
-.description {
-  flex: 1 1 65%;
-  max-width: 65%;
-  /* Flexbox-Falle: erlaubt dem Inhalt, kleiner zu werden und umzubrechen */
-  min-width: 0;
+.profile-page{
+  /* Wand */
+  background-repeat: repeat;
+  background-size: 220px auto;   /* skaliert die Ziegel */
+  min-height: 100dvh;
 }
 
-/* Responsive: unter 768px stapeln wir untereinander */
-@media (max-width: 768px) {
-  .profile {
+/* Wand nur als Rahmen um die Card zeigen */
+.wall-wrap{
+  background-size: 220px auto;
+  background-repeat: repeat;
+  border-radius: 24px;
+  padding: 1.25rem;
+}
 
-    flex-direction: column;
-  }
 
-  .image,
-  .description {
-    flex: none;
-    max-width: 100%;
-  }
+/* 1) Seitenhintergrund bleibt hell, nicht die ganze Seite ist Wand */
 
-  .setMargin{
-    margin-left: 1%;
-  }
 
-  .profilePage{
-    margin-left: 5%;
-  }
+/* 2) Wand nur als Rahmen um die Card */
 
+
+/* leichte Vignette auf der Wand für Tiefe */
+.wall-wrap::before{
+  content:"";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(100% 70% at 50% 100%, rgba(0,0,0,.08), transparent 60%);
+  mix-blend-mode: multiply;
+}
+
+/* 3) Inhalt bleibt auf einer hellen, lesbaren Karte */
+.content-card{
+  position: relative;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.06),
+    0 12px 28px rgba(2,8,23,.10);
+  padding: 1.25rem;
+}
+
+/* 4) Card-Header modern & kompakt */
+.card-header h1{
+  margin: 0;
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
+  font-weight: 800;
+  color: var(--text);
+}
+.card-header h1 span{ text-decoration: underline 3px; }
+.card-header p{
+  margin: .35rem 0 1rem;
+  color: var(--muted);
+}
+
+/* 5) Inhalt in zwei Spalten (Bild links, Text rechts) */
+.profile-grid{
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 1.25rem;
+}
+@media (max-width: 950px){
+  .profile-grid{ grid-template-columns: 1fr; }
+}
+
+/* Bildblock – nie verzerrt */
+.image img{
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  box-shadow: inset 0 0 0 1px rgba(2,8,23,.05);
+}
+
+/* optional: Text-Clamp, damit nichts sprengt */
+.description p{
+  color: var(--muted);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;      /* max. 6 Zeilen */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Seitenhintergrund hell, ohne Wand */
+.profile-page{
+  background: #f5f7fb;
+  min-height: 100dvh;
+  padding: 3rem 1rem;
+}
+
+/* Wand NUR hier */
+.wall-wrap{
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;                 /* sichtbarer Wand-Rand */
+  border-radius: 24px;
+
+  background-image: url('/assets/houseWall.png');
+  background-repeat: repeat;
+  background-size: 220px auto;
+
+  box-shadow: 0 10px 30px rgba(2,8,23,.10);
+}
+
+/* optionale Vignette auf der Wand (unter der Karte!) */
+.wall-wrap::before{
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  z-index: 0;                       /* ← wichtig: unter der Karte */
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(100% 70% at 50% 100%, rgba(0,0,0,.08), transparent 60%);
+  /* wenn es trotzdem "durchscheint": entferne die nächste Zeile */
+  /* mix-blend-mode: multiply; */
+}
+
+/* Die Karte selbst: deckend & über der Wand */
+.content-card{
+  position: relative;
+  z-index: 1;                       /* ← über der Wand / ::before */
+  isolation: isolate;               /* separater Blend-/Stack-Kontext */
+  background-color: #fff;           /* komplett deckend */
+  /* KEIN opacity hier benutzen! */
+  border-radius: 18px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.06),
+    0 12px 28px rgba(2,8,23,.10);
+  padding: 1.25rem;
 }

@@ -15,8 +15,10 @@ export class ProfileComponent implements OnInit {
   constructor(private neiServ: NeighbearsService){}
 
   ngOnInit(): void {
+    console.log("the user is ",this.user)
     //this.getNeighbearProfile();
-   //window.sessionStorage.getItem("userdetails");
+   console.log("the user is ",this.user)
+
   //window.sessionStorage.getItem("XSRF-TOKEN");
  //   if(sessionStorage.getItem('userdetails')){
  //     this.user = JSON.parse(sessionStorage.getItem('userdetails') || "");

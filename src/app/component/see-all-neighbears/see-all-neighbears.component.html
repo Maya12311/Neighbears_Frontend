@@ -1,9 +1,26 @@
-<div *ngFor="let one of neighbearsList" class=" container">
-  <img [src]="safeImageUrls[one.id] ||  '../../assets/anonym.png'">
+<h1 class="page-title">
+  👋 Welcome to your <span>Neighbears</span> in <em>Gulliestr. 3</em>
+</h1>
 
-  <div>Name: {{one.name}}</div>
+<div class="profiles">
+  <article class="profile-card" *ngFor="let one of neighbearsList">
+    <img
+      class="profile-card__img"
+      [src]="safeImageUrls[one.id] || 'assets/anonym.png'"
+      alt="Avatar von {{ one.name }}"
+      width="260" height="260"
+    />
 
+    <div class="profile-card__body">
+      <h2 >My name is: <span>{{ one.name }}</span></h2>
 
+      <ng-container *ngIf="one.selfDescriptionDTO?.title || one.selfDescriptionDTO?.message">
+        <h3 class="profile-card__title">{{ one.selfDescriptionDTO?.title }}</h3>
+        <p class="profile-card__text">{{ one.selfDescriptionDTO?.message }}</p>
+      </ng-container>
 
+      <!-- Optional: Adresse etc. -->
+      <!-- <p class="profile-card__meta">{{ one.addressDTO?.street }} {{ one.addressDTO?.houseNumber }}, {{ one.addressDTO?.zipCode }} {{ one.addressDTO?.city }}</p> -->
+    </div>
+  </article>
 </div>
-

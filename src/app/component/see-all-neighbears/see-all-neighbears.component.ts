@@ -14,13 +14,9 @@ import { Component, OnInit } from '@angular/core';
 export class SeeAllNeighbearsComponent implements OnInit{
 public env = environment; 
   neighbearsList: Neighbear[] = [];
-  avatar: any = "";
-  type : any = "";
-  profileImageUrl="";
-  profilePicExist=false;
-  id :number = 0;
-  //avatar: string = "";
   safeImageUrls: { [key: number]: SafeUrl } = {}; // Map: ID → Bild-URL
+  street: string = "" ; 
+  houseNumber: string = "";
 
 constructor(private neighbearService: NeighbearsService , private profileService : ProfileService,   private sanitizer: DomSanitizer               // ⬅️ hier rein
 ){}
@@ -51,8 +47,10 @@ constructor(private neighbearService: NeighbearsService , private profileService
 this.neighbearService.getAllNeighbears().subscribe({
   next: (list: Neighbear[]) => {
     this.neighbearsList= list;
+    this.street = this.neighbearsList[0].addressDTO?.street || ""; 
+    this.houseNumber = this.neighbearsList[0].addressDTO?.houseNumber || ""; 
     for(const element of this.neighbearsList){
-
+console.log(element)
       if(element.avatar?.storageKey == ""){
 continue
       }else{

@@ -1,7 +1,6 @@
 
 <div *ngIf="profileIsFilledOut">
-  <p>Titel</p>
-  <p>{{selfDescription.title}}</p>
+  <h1>Titel: <b> {{selfDescription.title}} </b></h1>
   <p>About Me:</p>
   <p>{{selfDescription.message}}</p>
 <button (click)="goToFillOutForm()" class="friendly-btn">Change profile description</button>
@@ -31,8 +30,8 @@
   <form (ngSubmit)="changeDescription(loginform)" #loginform="ngForm">
 
 
-
     <label for="titel">Titel</label>
+  
   <input class="form-control"  type="titel" name="titel" id="titel" [(ngModel)]="selfDescription.title">
   <label  for="message">About Me:</label>
   <input id="message" name="message" type="descripton" [(ngModel)]="selfDescription.message" class="form-control" >
