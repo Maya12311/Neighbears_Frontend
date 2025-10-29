@@ -1,6 +1,6 @@
 
 .friendly-btn {
-  background: linear-gradient(#bdecb6, darkgreen,#256d7b)  ;/* freundliches Grün */
+  background-color: #E77F67; /* warmes Korallenrot */
   color: white;
   font-size: 1rem;
   font-weight: 500;
@@ -14,7 +14,7 @@
 }
 
 .friendly-btn:hover {
-  background-color: #bdecb6;     /* dunkleres Grün */
+  hover: #F69E89;
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   transform: translateY(-2px);
 }

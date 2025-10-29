@@ -1,9 +1,17 @@
-<div class="profilePage">
-<div class="setMargin">
-<h1>Hello {{user.name}}</h1>
-</div>
+<div class=" wall-image">
+<div class="profile-page">
+  <section class="wall-wrap">
+    <div class="content-card">
+      <header class="card-header">
+        <h1>Hello <span>{{ user.name }}</span> 👋</h1>
+        <p>Manage your photo & About-me in one place.</p>
+      </header>
 
-  <div class="profile"><app-image class="image"></app-image>
-  <app-self-description class="description"></app-self-description>
+      <div class="profile-grid">
+        <div class="left"><app-image class="image"></app-image></div>
+        <div class="right"><app-self-description class="description"></app-self-description></div>
+      </div>
+    </div>
+  </section>
 </div>
 </div>
