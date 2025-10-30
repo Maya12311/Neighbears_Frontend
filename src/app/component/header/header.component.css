@@ -9,6 +9,7 @@ img{
 
 
     nav {
+      width: 100vw;  
       background-image: url('../../../assets/LogoNeighbears.png');
       background-repeat: no-repeat;
       background-position: left center;  /* links zentriert */
