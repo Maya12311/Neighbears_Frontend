@@ -1,12 +1,23 @@
 
-
+img{
+ 
+  height: 60px;           /* exakt so hoch wie die Navbar */
+  width: auto;            /* Seitenverhältnis beibehalten */
+  display: block;         /* verhindert zusätzliche Abstände (inline default) */
+  object-fit: contain;  
+}
 
 
     nav {
+      background-image: url('../../../assets/LogoNeighbears.png');
+      background-repeat: no-repeat;
+      background-position: left center;  /* links zentriert */
+      background-size: auto 100%;
       position: sticky;
       top: 0;
       padding: 1rem 2rem;
       color: #333;
+      height: 60px;
       /* sanfter Pastell-Verlauf */
       background: linear-gradient(135deg,
         rgba(255, 200, 200, 0.8),
@@ -29,5 +40,6 @@
 
 .box
 {
+  display: flex;
   margin-top: 5px;
 }
